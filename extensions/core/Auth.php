@@ -11,7 +11,7 @@ use nadir2\core\AppHelper;
  */
 class Auth extends AbstractAuth
 {
-    /** @var \nadir\core2\Request The request object. */
+    /** @var \nadir2\core\Request The request object. */
     protected $request = null;
 
     /** @var array The route config. */
