@@ -5,16 +5,16 @@ namespace models;
 use extensions\core\AbstractModel;
 
 /**
- * This's demo version of model class.
+ * This is demo version of model class.
  * @author Leonid Selikhov
  */
 class Test extends AbstractModel
 {
     public function readDefault()
     {
-        return array(
+        return [
             'foo' => 'bar',
-            'bar' => array(42, 'baz')
-        );
+            'bar' => [42, 'baz'],
+        ];
     }
 }
