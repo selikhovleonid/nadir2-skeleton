@@ -10,15 +10,14 @@ use nadir2\core\AbstractWebCtrl;
  */
 class Test extends AbstractWebCtrl
 {
-    public function actionDefault()
+    public function actionDefault(): void
     {
         $this->getView()->addSnippet('topbar');
-        $oTopBar               = $this->getView()->getSnippet('topbar');
-        $oTopBar->isUserOnline = false;
-        $oModel                = new \models\Test();
-        $aData                 = $oModel->readDefault();
-        $this->getView()->foo  = $aData['foo'];
-        $this->getView()->bar  = $aData['bar'];
+        $this->getView()->getSnippet('topbar')
+            ->isUserOnline    = false;
+        $data                 = (new \models\Test())->readDefault();
+        $this->getView()->foo = $data['foo'];
+        $this->getView()->bar = $data['bar'];
         $this->render();
     }
 }

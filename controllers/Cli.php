@@ -10,11 +10,11 @@ use nadir2\core\AbstractCliCtrl;
  */
 class Cli extends AbstractCliCtrl
 {
-    public function actionTest(array $aArgs)
+    public function actionTest(array $args): void
     {
-        if (!empty($aArgs)) {
+        if (!empty($args)) {
             $this->printInfo('The test cli action was called with args: '
-                .implode(', ', $aArgs).'.');
+                .implode(', ', $args).'.');
         } else {
             $this->printError(new \Exception('The test cli action was called without args.'));
         }
