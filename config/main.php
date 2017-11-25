@@ -1,6 +1,6 @@
 <?php
-return array(
-    'componentsRootMap' => array(
+return [
+    'componentsRootMap' => [
         'models'      => '/models',
         'controllers' => '/controllers',
         'views'       => '/views/views',
@@ -9,47 +9,49 @@ return array(
         'images'      => '/web/assets/imgs',
         'js'          => '/web/js',
         'css'         => '/web/css'
-    ),
+    ],
     'defaultLayout'     => 'main',
-    'routeMap'          => array(
-        'cli'    => array(
-            '--test' => array(
-                'ctrl' => array('Cli', 'actionTest'),
-            ),
-        ),
-        'get'    => array(
-            '/'  => array(
-                'ctrl' => array('Test', 'actionDefault'),
+    'routeMap'          => [
+        'cli'    => [
+            '--test' => [
+                'ctrl' => ['Cli', 'actionTest'],
+            ],
+        ],
+        'get'    => [
+            '/'  => [
+                'ctrl' => ['Test', 'actionDefault'],
+                'auth' => true,
+            ],
+            '.*' => [
+                'ctrl' => ['System', 'actionPage404'],
                 'auth' => false,
-            ),
-            '.*' => array(
-                'ctrl' => array('System', 'actionPage404'),
+            ],
+        ],
+        'post'   => [
+            '.*' => [
+                'ctrl' => ['System', 'actionPage404'],
                 'auth' => false,
-            ),
-        ),
-        'post'   => array(
-            '.*' => array(
-                'ctrl' => array('System', 'actionPage404'),
+            ],
+        ],
+        'put'    => [
+            '.*' => [
+                'ctrl' => ['System', 'actionPage404'],
                 'auth' => false,
-            ),
-        ),
-        'put'    => array(
-            '.*' => array(
-                'ctrl' => array('System', 'actionPage404'),
+            ],
+        ],
+        'delete' => [
+            '.*' => [
+                'ctrl' => ['System', 'actionPage404'],
                 'auth' => false,
-            ),
-        ),
-        'delete' => array(
-            '.*' => array(
-                'ctrl' => array('System', 'actionPage404'),
-                'auth' => false,
-            ),
-        ),
-    ),
-//    'db'                => array(
-//        'host'     => '',
-//        'username' => '',
-//        'password' => '',
-//        'dbname'   => ''
-//    ),
-);
+            ],
+        ],
+    ],
+    'db'                => is_readable(__DIR__.'/db.local.php')
+    ? require __DIR__.'/db.local.php'
+    : [
+        'host'     => '',
+        'username' => '',
+        'password' => '',
+        'dbname'   => ''
+    ],
+];
