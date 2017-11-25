@@ -11,7 +11,7 @@ use nadir2\core\ProcessInterface;
  */
 class Process implements ProcessInterface
 {
-    /** @var self This's singleton object of current class. */
+    /** @var self This is singleton object of current class. */
     private static $instance = null;
 
     /**
@@ -26,7 +26,7 @@ class Process implements ProcessInterface
      * It returns the singleton-instance of current class.
      * @return self.
      */
-    public static function getInstance()
+    public static function getInstance(): self
     {
         if (is_null(self::$instance)) {
             self::$instance = new self();
