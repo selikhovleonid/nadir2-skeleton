@@ -2,9 +2,9 @@
 
 namespace controllers;
 
-use nadir\core\AbstractWebCtrl;
+use nadir2\core\AbstractWebCtrl;
 use extensions\core\SystemCtrlInterface;
-use nadir\core\Headers;
+use nadir2\core\Headers;
 
 /**
  * This is system controller.
@@ -16,7 +16,7 @@ class System extends AbstractWebCtrl implements SystemCtrlInterface
     /**
      * {@inheritdoc}
      */
-    public function actionPage401(array $aErrors)
+    public function actionPage401(array $errors): void
     {
         Headers::getInstance()->addByHttpCode(401)->run();
         // Put your code here...
@@ -26,7 +26,7 @@ class System extends AbstractWebCtrl implements SystemCtrlInterface
     /**
      * {@inheritdoc}
      */
-    public function actionPage403(array $aErrors)
+    public function actionPage403(array $errors): void
     {
         Headers::getInstance()->addByHttpCode(403)->run();
         // Put your code here...
@@ -36,7 +36,7 @@ class System extends AbstractWebCtrl implements SystemCtrlInterface
     /**
      * {@inheritdoc}
      */
-    public function actionPage404(array $aErrors)
+    public function actionPage404(array $errors): void
     {
         Headers::getInstance()->addByHttpCode(404)->run();
         // Put your code here...
