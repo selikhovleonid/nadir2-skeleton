@@ -13,9 +13,9 @@ abstract class AbstractAuth implements RunnableInterface
 
     /**
      * The method checks if the user auth is valid.
-     * @return boolean.
+     * @return boolean
      */
-    abstract public function isValid();
+    abstract public function isValid(): bool;
 
     /**
      * The method contains the code which invokes if the auth was failed.

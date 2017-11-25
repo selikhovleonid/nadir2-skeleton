@@ -11,7 +11,7 @@ use nadir2\core\AppHelper;
  */
 class Auth extends AbstractAuth
 {
-    /** @var \nadir\core\Request The request object. */
+    /** @var \nadir\core2\Request The request object. */
     protected $request = null;
 
     /** @var array The route config. */
@@ -22,40 +22,41 @@ class Auth extends AbstractAuth
 
     /**
      * The constructor receives the request object to read the route configuration.
-     * @param \nadir\core\Request $oRequest The request object.
+     * @param \nadir2\core\Request $request The request object.
      */
-    public function __construct(Request $oRequest)
+    public function __construct(Request $request)
     {
-        $this->request     = $oRequest;
+        $this->request     = $request;
         $this->routeConfig = AppHelper::getInstance()->getRouteConfig();
     }
 
     /**
      * It checks cookies according custom algorithm.
-     * @param array $aCookies The associated array of cookies.
+     * @param array $cookies The associated array of cookies.
+     * @return void
      */
-    protected function checkCookies(array $aCookies)
+    protected function checkCookies(array $cookies): void
     {
         // Put your code here...
     }
 
     /**
      * The main executable method of this class.
-     * @throws \Exception It's throwed if 'auth' option wasn't defined.
+     * @throws \Exception It's throwen if 'auth' option wasn't defined.
      */
     public function run(): void
     {
         if (!isset($this->routeConfig['auth'])) {
             throw new \Exception("Undefined option 'auth' for the current route.");
         }
-        $mCookies = $this->request->getAllCookies();
-        $this->checkCookies(!is_null($mCookies) ? $mCookies : array());
+        $cookies = $this->request->getAllCookies();
+        $this->checkCookies(!is_null($cookies) ? $cookies : []);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function isValid()
+    public function isValid(): bool
     {
         return is_null($this->error);
     }
