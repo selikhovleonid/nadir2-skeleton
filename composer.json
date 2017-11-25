@@ -19,7 +19,7 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=7.1.0",
-        "selikhovleonid/nadir2": "dev-master"
+        "selikhovleonid/nadir2": "2.*"
     },
     "autoload": {
         "psr-4": {
