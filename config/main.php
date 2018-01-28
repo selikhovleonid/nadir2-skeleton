@@ -7,9 +7,9 @@ return [
         'views'       => '/views/views',
         'layouts'     => '/views/layouts',
         'snippets'    => '/views/snippets',
-        'images'      => '/assets/imgs', //Real path: /web/assets/imgs'
-        'js'          => '/js',          //Real path: /web/js'
-        'css'         => '/css',         //Real path: /web/css'
+        'images'      => '/assets/imgs', //Real path: /web/assets/imgs
+        'js'          => '/js',          //Real path: /web/js
+        'css'         => '/css',         //Real path: /web/css
     ],
     // The default name of the layout
     'defaultLayout'     => 'main',
